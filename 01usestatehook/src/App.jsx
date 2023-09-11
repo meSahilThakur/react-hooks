@@ -3,6 +3,7 @@ import "./App.css";
 
 function App() {
   const [showPassword, setShowPassword] = useState(false);
+  const [showLoginCard, setShowLoginCard] = useState(false);
 
   return (
     <div>
@@ -16,10 +17,17 @@ function App() {
           }}
         >
           {showPassword ? "Hide" : "Show"}
-        </button>
+        </button> <br /><br />
+        <button onClick={()=>{setShowLoginCard(!showLoginCard)}}>ShowLoginCard</button>
       </div>
 
-      <div className="loginmodal">
+
+
+{/* login box */}
+
+      <div className={`loginmodal ${showLoginCard===true ? "show": " "} `}>
+        <span onClick={()=>{setShowLoginCard(!showLoginCard)}}>&times;</span>
+        
         <h2>Login</h2>
         <h2>Password</h2>
       </div>
